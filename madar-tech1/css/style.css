@@ -1,0 +1,486 @@
+/* ============================================================
+             ألوان الهوية البصرية لمدار تك
+============================================================ */
+:root {
+  --oxford-blue: #03213D;    /* اللون الرئيسي */
+  --fresh-lime: #D5E159;     /* اللون المميز */
+  --graphite:   #333333;     /* للنصوص */
+  --pale-silver: #DAD9D9;    /* للخلفيات */
+  --white: #ffffff;
+  --shadow: 0 8px 24px rgba(3, 33, 61, 0.08);
+  --radius: 16px;
+  --transition: all 0.3s ease;
+}
+
+/* ============================================================
+                    الاساسيات العامة
+============================================================ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+body {
+  font-family: 'Cairo', sans-serif;
+  color: var(--graphite);
+  background-color: var(--white);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ============================================================
+   01 - Navbar
+============================================================ */
+.custom-navbar {
+  background: var(--oxford-blue);
+  padding: 12px 0;
+  transition: var(--transition);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.custom-navbar.scrolled {
+  padding: 6px 0;
+  background: rgba(3, 33, 61, 0.96);
+  backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.logo-img { width: 42px; height: 42px; object-fit: contain; border-radius: 8px; }
+.brand-text { color: var(--fresh-lime); }
+
+.navbar-nav .nav-link {
+  color: var(--pale-silver);
+  font-weight: 600;
+  padding: 8px 14px !important;
+  transition: var(--transition);
+  position: relative;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--fresh-lime);
+}
+
+.navbar-toggler {
+  border: 1px solid var(--fresh-lime);
+  color: var(--fresh-lime);
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+.navbar-toggler:focus { box-shadow: none; }
+
+.btn-book {
+  background: var(--fresh-lime);
+  color: var(--oxford-blue);
+  font-weight: 700;
+  padding: 8px 22px;
+  border-radius: 30px;
+  transition: var(--transition);
+  border: none;
+}
+.btn-book:hover {
+  background: var(--white);
+  color: var(--oxford-blue);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   02 - Hero
+============================================================ */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, var(--oxford-blue) 0%, #0a3a63 100%);
+  color: var(--white);
+  padding: 120px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: -100px; left: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(213,225,89,0.15), transparent 70%);
+  border-radius: 50%;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  color: var(--fresh-lime);
+}
+
+.hero-desc {
+  font-size: 1.15rem;
+  color: var(--pale-silver);
+  max-width: 620px;
+  margin-bottom: 32px;
+}
+
+.hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.btn-lime {
+  background: var(--fresh-lime);
+  color: var(--oxford-blue);
+  font-weight: 700;
+  padding: 12px 32px;
+  border-radius: 30px;
+  border: 2px solid var(--fresh-lime);
+  transition: var(--transition);
+}
+.btn-lime:hover {
+  background: transparent;
+  color: var(--fresh-lime);
+}
+
+.btn-outline-light {
+  padding: 12px 32px;
+  border-radius: 30px;
+  font-weight: 700;
+  border: 2px solid var(--pale-silver);
+}
+
+.hero-shape {
+  width: 320px; height: 320px;
+  margin: auto;
+  background: rgba(213, 225, 89, 0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 4s ease-in-out infinite;
+}
+.hero-icon { font-size: 8rem; color: var(--fresh-lime); }
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-20px); }
+}
+
+/* ============================================================
+   تنسيق عنوان الأقسام
+============================================================ */
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.section-title h2 {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: var(--oxford-blue);
+  margin-bottom: 12px;
+  position: relative;
+  display: inline-block;
+}
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  bottom: -8px; left: 50%;
+  transform: translateX(-50%);
+  width: 60px; height: 4px;
+  background: var(--fresh-lime);
+  border-radius: 4px;
+}
+.section-title p {
+  color: var(--graphite);
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+}
+.section-title.light h2 { color: var(--white); }
+.section-title.light p { color: var(--pale-silver); }
+
+/* ============================================================
+   03 - About
+============================================================ */
+.about-section { padding: 90px 0; background: var(--white); }
+
+.info-card {
+  background: var(--white);
+  padding: 32px;
+  border-radius: var(--radius);
+  border: 1px solid var(--pale-silver);
+  box-shadow: var(--shadow);
+  height: 100%;
+  transition: var(--transition);
+}
+.info-card:hover { transform: translateY(-6px); }
+
+.info-card.vision { border-top: 5px solid var(--fresh-lime); }
+.info-card.message { border-top: 5px solid var(--oxford-blue); }
+
+.info-icon {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+.vision .info-icon { background: var(--fresh-lime); color: var(--oxford-blue); }
+.message .info-icon { background: var(--oxford-blue); color: var(--fresh-lime); }
+
+.info-card h3 { color: var(--oxford-blue); font-weight: 800; margin-bottom: 12px; }
+.info-card p { color: var(--graphite); margin: 0; }
+
+/* ============================================================
+   04 - Services
+============================================================ */
+.services-section {
+  padding: 90px 0;
+  background: var(--oxford-blue);
+}
+
+.service-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(213,225,89,0.25);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+  color: var(--white);
+  height: 100%;
+  transition: var(--transition);
+}
+.service-card:hover {
+  background: rgba(213,225,89,0.12);
+  transform: translateY(-8px);
+  border-color: var(--fresh-lime);
+}
+
+.service-icon {
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  background: var(--fresh-lime);
+  color: var(--oxford-blue);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.7rem;
+  margin: 0 auto 18px;
+}
+
+.service-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; color: var(--fresh-lime); }
+.service-card p { font-size: 0.95rem; color: var(--pale-silver); margin: 0; }
+
+/* ============================================================
+   05 - Programs
+============================================================ */
+.programs-section { padding: 90px 0; background: var(--pale-silver); }
+
+.program-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  text-align: center;
+  height: 100%;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border-bottom: 5px solid transparent;
+}
+.program-card:hover {
+  transform: translateY(-8px);
+  border-bottom-color: var(--fresh-lime);
+}
+
+.program-icon {
+  width: 80px; height: 80px;
+  border-radius: 20px;
+  background: var(--oxford-blue);
+  color: var(--fresh-lime);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 20px;
+}
+
+.program-card h3 {
+  color: var(--oxford-blue);
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+.program-card p { color: var(--graphite); margin-bottom: 20px; }
+.btn-program {
+  background: transparent;
+  border: 2px solid var(--oxford-blue);
+  color: var(--oxford-blue);
+  font-weight: 700;
+  border-radius: 30px;
+  padding: 8px 26px;
+  transition: var(--transition);
+}
+.btn-program:hover {
+  background: var(--oxford-blue);
+  color: var(--fresh-lime);
+}
+
+/* ============================================================
+   06 - Why Madar
+============================================================ */
+.why-section {
+  padding: 90px 0;
+  background: linear-gradient(135deg, var(--oxford-blue), #0a3a63);
+}
+
+.why-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(213,225,89,0.2);
+  border-radius: 12px;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--white);
+  transition: var(--transition);
+  height: 100%;
+}
+.why-card:hover {
+  background: rgba(213,225,89,0.12);
+  transform: translateX(-4px);
+}
+.why-card i { font-size: 1.8rem; color: var(--fresh-lime); }
+.why-card span { font-weight: 600; font-size: 1.05rem; }
+
+/* ============================================================
+   07 - Contact
+============================================================ */
+.contact-section { padding: 90px 0; background: var(--white); }
+
+.contact-form {
+  background: var(--white);
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: 0 15px 40px rgba(3,33,61,0.1);
+  border: 1px solid var(--pale-silver);
+}
+
+.contact-form .form-label {
+  font-weight: 700;
+  color: var(--oxford-blue);
+  margin-bottom: 6px;
+}
+
+.contact-form .form-control {
+  border: 1.5px solid var(--pale-silver);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-family: 'Cairo', sans-serif;
+  transition: var(--transition);
+}
+.contact-form .form-control:focus {
+  border-color: var(--fresh-lime);
+  box-shadow: 0 0 0 3px rgba(213,225,89,0.3);
+}
+
+.btn-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 40px;
+}
+
+/* ============================================================
+   08 - Footer
+============================================================ */
+.site-footer {
+  background: var(--oxford-blue);
+  color: var(--pale-silver);
+  padding: 60px 0 20px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--fresh-lime);
+  margin-bottom: 16px;
+}
+
+.footer-about { font-size: 0.95rem; line-height: 1.9; }
+
+.site-footer h4 {
+  color: var(--fresh-lime);
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.footer-links li { margin-bottom: 10px; }
+.footer-links a {
+  color: var(--pale-silver);
+  transition: var(--transition);
+}
+.footer-links a:hover { color: var(--fresh-lime); padding-right: 6px; }
+
+.footer-contact li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.footer-contact i { color: var(--fresh-lime); font-size: 1.1rem; }
+.footer-contact a { color: var(--pale-silver); }
+.footer-contact a:hover { color: var(--fresh-lime); }
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(218,217,217,0.2);
+  margin-top: 40px;
+  padding-top: 20px;
+  font-size: 0.9rem;
+  color: var(--pale-silver);
+}
+
+/* ============================================================
+   Floating WhatsApp
+============================================================ */
+.float-whatsapp {
+  position: fixed;
+  bottom: 24px; left: 24px;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 8px 20px rgba(37,211,102,0.4);
+  z-index: 1000;
+  transition: var(--transition);
+}
+.float-whatsapp:hover {
+  transform: scale(1.1);
+  color: var(--white);
+}
+
+/* ============================================================
+   Responsive (Mobile)
+   ============================================================ */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: var(--oxford-blue);
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 12px;
+  }
+  .btn-book { display: inline-block; margin-top: 12px; }
+  .hero-section { padding: 120px 0 60px; text-align: center; }
+  .hero-buttons { justify-content: center; }
+}
+
+@media (max-width: 576px) {
+  .hero-title { font-size: 1.8rem; }
+  .contact-form { padding: 24px 18px; }
+  .float-whatsapp { width: 50px; height: 50px; font-size: 1.5rem; }
+}
